@@ -1,0 +1,25 @@
+{
+    "name": "mini-dictionary",
+    "version": "1.0.0",
+    "description": "A mini dictionary app",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+          "matches": ["*://*/*"],
+          "js": ["index.js"]
+        }
+      ],
+      "permissions": [
+        "activeTab",
+        "storage"
+      ],
+      "action": {
+        "default_popup": "index.html"
+      },
+    "web_accessible_resources": [
+        {
+          "resources": ["index.html", "index.js", "styles.css"],
+          "matches": ["*://*/*"]
+        }
+      ]
+}
