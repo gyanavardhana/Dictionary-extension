@@ -6,6 +6,10 @@ const clearbutton = document.getElementById("clear");
 
 
 
+
+
+
+
 historybutton.addEventListener("click", () => {
   display();
 });
@@ -29,12 +33,25 @@ searchbutton.addEventListener("click", () => {
 });
 
 
-
+function displayloder(){
+  const loader = document.getElementById("results");
+  loader.innerHTML = `
+  <div id="loader" >
+        <img style="width: 80%; height:80%" src="load-gif.gif" alt="" />
+      </div>
+  `;
+}
+function hideloder(){
+  const loader = document.getElementById("results");
+  loader.innerHTML = ``;
+}
 
 function displaymeaning(searchValue) {
+  displayloder();
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchValue}`)
     .then((response) => response.json())
     .then((data) => {
+      hideloder();
       const word = data[0].word;
       const audio = data[0].phonetics[0].audio;
       const resultdiv = document.createElement("div");
