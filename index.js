@@ -1,3 +1,5 @@
+
+// Local Storage is set to a empty list if there are no values in it.
 if (!localStorage.getItem("searchedvalues")) {
   localStorage.setItem("searchedvalues", JSON.stringify([]));
 }
@@ -13,13 +15,13 @@ const clearbutton = document.getElementById("clear");
 
 
 
-
+// when clicked history button the display function is called to display the words searched in the list.
 historybutton.addEventListener("click", () => {
   display();
 });
 
 
-
+// when clear button is clicked the list which is declared in the local storage is emptied
 clearbutton.addEventListener("click", () => {
   localStorage.setItem("searchedvalues",JSON.stringify([]));
   const hislist = document.getElementById("historylist");
@@ -28,7 +30,7 @@ clearbutton.addEventListener("click", () => {
 
 
 
-
+// when word is typed in search bar and clicked the displaymeaning function will be called.
 searchbutton.addEventListener("click", () => {
   const searchValue = searchbar.value;
   const resultbox = document.getElementById("results");
@@ -36,7 +38,7 @@ searchbutton.addEventListener("click", () => {
   displaymeaning(searchValue);
 });
 
-
+// Function to display the loader until the data is loaded.
 function displayloder(){
   const loader = document.getElementById("results");
   loader.innerHTML = `
@@ -45,11 +47,14 @@ function displayloder(){
       </div>
   `;
 }
+
+// Function to hide the loader after the data is loaded.
 function hideloder(){
   const loader = document.getElementById("results");
   loader.innerHTML = ``;
 }
 
+// Function to display the meaning of the word by calling the api.
 function displaymeaning(searchValue) {
   displayloder();
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchValue}`)
@@ -98,7 +103,7 @@ function displaymeaning(searchValue) {
 }
 
 
-
+// Function to store the searched words in the local storage.
 function store(value){
     ﻿const values = JSON.parse(localStorage.getItem("searchedvalues"));
      values.push(value);
@@ -106,7 +111,7 @@ function store(value){
 }
 
 
-
+// Funtion to display the words when clicked history.
 function display(){
     const hislist = document.getElementById("historylist");
     const values = JSON.parse(localStorage.getItem("searchedvalues"));
