@@ -1,4 +1,8 @@
-localStorage.setItem("searchedvalues",JSON.stringify([]));
+if (!localStorage.getItem("searchedvalues")) {
+  localStorage.setItem("searchedvalues", JSON.stringify([]));
+}
+
+
 const searchbar = document.getElementById("searchbar");
 const searchbutton = document.getElementById("search");
 const historybutton = document.getElementById("history");
