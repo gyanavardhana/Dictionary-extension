@@ -1,5 +1,5 @@
 
-// Local Storage is set to a empty list if there are no values in it.
+// Local Storage is set to a empty list if there are no values in it. 
 if (!localStorage.getItem("searchedvalues")) {
   localStorage.setItem("searchedvalues", JSON.stringify([]));
 }
@@ -54,7 +54,7 @@ function hideloder(){
   loader.innerHTML = ``;
 }
 
-// Function to display the meaning of the word by calling the api.
+// Function to display the meaning  of the word by calling the api.
 function displaymeaning(searchValue) {
   displayloder();
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchValue}`)
