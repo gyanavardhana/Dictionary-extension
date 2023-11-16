@@ -30,17 +30,17 @@ body {
     cursor: pointer;
   }
 
-  #results {
+  #results, #loader{
     margin: 20px;
   }
 
-  #historybox {
+  #historybox, #suggestionbox {
     background-color: #ecf0f1;
     padding: 20px;
     margin: 20px;
   }
 
-  #historylist {
+  #historylist, #suggestionlist {
     list-style-type: none;
     padding: 0;
   }
